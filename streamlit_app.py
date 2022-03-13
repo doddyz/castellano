@@ -10,7 +10,7 @@ st.set_page_config(
 
 letter_columns = st.columns(26)
 for i, letter in enumerate(ALPHABET):
-    letter_columns[i].markdown(f'#### [{letter}](#{letter.lower()})', unsafe_allow_html=True)
+    letter_columns[i].markdown(f'[{letter}](#{letter.lower()})', unsafe_allow_html=True)
 
 
 # st.markdown(f'[Test1](#arbol)', unsafe_allow_html=True)
