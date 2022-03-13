@@ -28,9 +28,9 @@ def get_all_letters_urls():
     return urls
 
 
+@st.experimental_memo
 def get_paremias_listing(letter):
     paremias_listing_url = BASE_URL + 'listado.aspx?letra=' + letter
-    # print(paremias_listing_url)
     r = requests.get(paremias_listing_url, headers=headers)
     page_content = r.text
     
@@ -53,7 +53,7 @@ def save_as_html_paremias_details_pages(letter):
             r = requests.get(paremia_page, headers=headers)
             f.write(r.text)
 
-
+@st.experimental_memo
 def get_paremia_details(letter, paremia_filename):
     
     file_path_string = os.getcwd() + '/HTML/'+ letter + '/'+ paremia_filename + '.html'
@@ -87,14 +87,22 @@ def get_paremia_details_web(paremia_page):
 
 def create_paremia_details_expander(letter, paremia_filename):
     paremia_details = get_paremia_details(letter, paremia_filename)
+    fill_in_issue_paremia_details(paremia_details)
     with st.expander(paremia_details['Enunciado']):
         st.markdown(f''' 
         **Tipo**: {paremia_details['Tipo']}   
         **Enunciado**: {paremia_details['Enunciado']}  
+        **Ideas clave**: {paremia_details['Ideas clave']}  
         **Significado**: {paremia_details['Significado']}  
         **Marcador de uso**: {paremia_details['Marcador de uso']}  
         ''')
 
+def fill_in_issue_paremia_details(paremia_details_dict):
+    for key in ['Tipo', 'Enunciado', 'Significado', 'Ideas clave', 'Marcador de uso']:
+        if key not in paremia_details_dict.keys():
+            paremia_details_dict[key] = 'No disponible'
+        
+            
 def create_paremia_details_expanders(letter):
     paremias_listing = get_paremias_listing(letter)
     paremia_titles = paremias_listing.keys()
