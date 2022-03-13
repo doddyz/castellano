@@ -14,19 +14,18 @@ for i, letter in enumerate(ALPHABET):
 
 
 
-st.subheader('A')
+# st.subheader('A')
 
 # create_paremia_details_expander(SAMPLE_REFRAN_URL)
 # create_paremia_details_expanders('A')
 
-st.subheader('B')
-st.subheader('C')
-st.subheader('D')
-st.subheader('E')
-st.subheader('F')
+# st.subheader('B')
+# st.subheader('C')
+# st.subheader('D')
+# st.subheader('E')
+# st.subheader('F')
     
     
-    
-
+create_paremia_letter_containers()
 
 
