@@ -16,8 +16,8 @@ letter_columns = st.columns(26)
 for i, letter in enumerate(ALPHABET):
     letter_columns[i].markdown(f'[{letter}](#{letter.lower()})', unsafe_allow_html=True)
 
-with st.spinner('Cargando aplicación, espere por favor...'):
-    create_paremia_letter_containers()
+    
+create_paremia_letter_containers()
 
 
 
