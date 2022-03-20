@@ -1,10 +1,5 @@
-# Handle expceptions sometimes some fields like 'ideas clave' not available
-# Fix anchors not working (check official demo again)
-# Extraer todas las páginas web localmente
-# Extraer keys & values of paremia page,
-# Papier crayon pour la suite pour affichage in expander a lo mejor ...
-# Next need to get individual refran content from individual refran pages:
-# Recuperar tipo, idioma, ideas clave, todo tipo de campo como diccionario Python a lo mejor
+# Add percent loading bar at start up cf tools in st to do this  
+# Implement search filters: search by frequency of use, ... (papier crayon 1st)
 
 import os
 import requests
