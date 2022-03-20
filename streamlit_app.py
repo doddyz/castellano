@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from refranero import *
 
 st.set_page_config(
@@ -8,16 +9,20 @@ st.set_page_config(
      initial_sidebar_state='expanded',
  )
 
+
+st.markdown('# Refranero Castellano :memo:')
+
 letter_columns = st.columns(26)
 for i, letter in enumerate(ALPHABET):
     letter_columns[i].markdown(f'[{letter}](#{letter.lower()})', unsafe_allow_html=True)
 
+with st.spinner('Cargando aplicación, espere por favor...'):
+    create_paremia_letter_containers()
 
-# st.markdown(f'[Test1](#arbol)', unsafe_allow_html=True)
-# st.markdown(f'[Test2](#casa)', unsafe_allow_html=True)    
-# st.header('Arbol')
-# st.header('Casa')
 
-create_paremia_letter_containers()
+
+
+
+
 
 
